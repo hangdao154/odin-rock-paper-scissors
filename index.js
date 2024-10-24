@@ -42,19 +42,19 @@ function playRound(computerChoice, userChoice) {
     switch (result) {
         case 1:
         case -2:
-            console.log("You lose this round.");
+            console.log("---> You lose this round.");
             computerScore++;
             break;
         case -1:
         case 2:
-            console.log("You win this round.");
+            console.log("---> You win this round.");
             userScore++;
             break;
         case 0:
-            console.log("Tide.");
+            console.log("---> Tide.");
             break;
         default:
-            console.log("Invalid");
+            console.log("---> Invalid");
             return;
     }
 }
@@ -75,6 +75,8 @@ function playGame() {
     }
 
     // Final winner
+    console.log("====== FINAL RESULT ======");
+    
     if (computerScore > userScore) {
         console.log("The computer wins!");
     } else if (computerScore < userScore) {
@@ -85,8 +87,10 @@ function playGame() {
 }
 
 const ROUND_NUMBER = 5;
-
 let computerScore = 0, userScore = 0;
-playGame();
+
+const answer = prompt("Start the game? Type 'y' or 'n':").trim().toLocaleLowerCase();
+if (answer === 'y') playGame();
+
 
 
